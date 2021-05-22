@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
-header("Access-Control-Allow-Origin: *");
 
 class UsersController extends Controller
 {

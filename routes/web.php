@@ -13,4 +13,4 @@ use App\Http\Controllers\UsersController;
 |
 */
 
-Route::post('/api/users', [UsersController::class, 'post']);
+
