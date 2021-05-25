@@ -6,6 +6,6 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\LikesController;
 
 
-Route::post('/api/users', [UsersController::class, 'post']);
-Route::post('/api/like', [LikesController::class, 'post']);
-Route::delete('/api/like',[LikesController::class, 'delete']);
+Route::post('/users', [UsersController::class, 'post']);
+Route::post('/like', [LikesController::class, 'post']);
+Route::delete('/like',[LikesController::class, 'delete']);
