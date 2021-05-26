@@ -15,7 +15,7 @@ class UsersController extends Controller
         $now = Carbon::now();
         $hashed_password = Hash::make($request->password);
         $param = [
-            "user_id" => $request->uesr_id,
+            "user_id" => $request->user_id,
             "user_name" => $request->user_name,
             "email" => $request->email,
             "password" => $hashed_password,
