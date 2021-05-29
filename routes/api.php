@@ -9,3 +9,5 @@ use App\Http\Controllers\LikesController;
 Route::post('/users', [UsersController::class, 'post']);
 Route::post('/like', [LikesController::class, 'post']);
 Route::delete('/like',[LikesController::class, 'delete']);
+Route::apiResource('/users', UsersController::class);
+
