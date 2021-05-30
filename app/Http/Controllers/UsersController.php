@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
 
-
-
 class UsersController extends Controller
 {
   public function post(Request $request)
