@@ -2,31 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
+
 
 
 
 class UsersController extends Controller
 {
-  public function index()
-  {
-      $items = User::all();
-      return response()->json([
-          'message' => 'OK',
-          'data' => $items
-      ],200);
-  }
+  public function post(Request $request)
+    {
+        $now = Carbon::now();
+        $hashed_password = Hash::make($request->password);
+        $param = [
+            "user_id" => $request->user_id,
+            "user_name" => $request->user_name,
+            "email" => $request->email,
+            "password" => $hashed_password,
+            "created_at" => $now,
+            "updated_at" => $now,
+        ];
+        DB::table('users') ->insert($param);
+        return response()->json([
+            'message' => 'User created successfully',
+            'data' => $param
+        ], 200);
+    }
 
-  public function store(Request $request)
-  {
-      $item = new User;
-      $item->user_name = $request->user_name;
-      $item->password = $request->password;
-      $item->save();
-      return response()->json([
-            'message' => 'Created successfully',
-            'data' => $item
-      ],200);
-  }
 }
