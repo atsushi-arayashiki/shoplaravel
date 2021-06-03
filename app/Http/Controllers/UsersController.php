@@ -22,7 +22,7 @@ class UsersController extends Controller
             "created_at" => $now,
             "updated_at" => $now,
         ];
-        DB::table('users') ->insert($param);
+        DB::table('users')->insert($param);
         return response()->json([
             'message' => 'User created successfully',
             'data' => $param
