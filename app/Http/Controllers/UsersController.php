@@ -7,15 +7,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
-
 class UsersController extends Controller
 {
-  public function post(Request $request)
+  public function store(Request $request)
     {
         $now = Carbon::now();
         $hashed_password = Hash::make($request->password);
         $param = [
-            "user_id" => $request->user_id,
             "user_name" => $request->user_name,
             "email" => $request->email,
             "password" => $hashed_password,
@@ -27,6 +25,18 @@ class UsersController extends Controller
             'message' => 'User created successfully',
             'data' => $param
         ], 200);
+    }
+    public function index(Request $request)
+    {
+        if ($request->has('email')) {
+            $items = DB::table('users')->where('email', $request->email)->get();
+            return response()->json([
+                'message' => 'User got successfully',
+                'data' => $items
+            ], 200);
+        } else {
+            return response()->json(['status' => 'not found'], 404);
+        }
     }
 
 }
