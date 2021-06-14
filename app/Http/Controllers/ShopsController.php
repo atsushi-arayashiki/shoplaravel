@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class ShopsController extends Controller
 {
-  public function index(Request $request)
+  public function get(Request $request)
   {
      $now = Carbon::now();
      $param = [
