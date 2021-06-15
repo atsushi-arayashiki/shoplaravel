@@ -5,23 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Shop;
 
 
 class ShopsController extends Controller
 {
   public function get(Request $request)
   {
-     $now = Carbon::now();
-     $param = [
-         "shop_image" => $request->shop_image,
-         "shop_name" => $request->shop_name,
-         "shop_area" => $request->shop_area,
-         "shop_genre" => $request->shop_genre,
-     ];
-     DB::table('shops')->get($param);
-     return response()->json([
-         'message' => 'User created successfully',
-         'data' => $param
-     ], 200);
-  }
+      $items = DB::table('shops')->get();
+      return response()->json([
+          'message' => 'User got successfully',
+          'data' => $items
+            ], 200);
+
+}
 }
