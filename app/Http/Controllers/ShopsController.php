@@ -19,4 +19,5 @@ class ShopsController extends Controller
             ], 200);
 
 }
+
 }
