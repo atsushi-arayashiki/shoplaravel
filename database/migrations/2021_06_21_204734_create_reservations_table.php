@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShopsTable extends Migration
+class CreateReservationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateShopsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shops', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
+            $table->id('reservations_id');
             $table->id('shop_id');
-            $table->string('shop_name');
-            $table->string('shop_area');
-            $table->string('shop_genre');
-            $table->text('shop_data');
-            $table->string('shop_image');
+            $table->id('user_id');
+            $table->dateTime('reservations_data');
+            $table->dateTime('reservations_time');
+            $table->integer('reservations_number');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateShopsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shops');
+        Schema::dropIfExists('reservations');
     }
 }
