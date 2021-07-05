@@ -15,3 +15,4 @@ Route::apiResource('/users', UsersController::class);
 Route::post('/login', [LoginController::class, 'post']);
 Route::get('/shops', [ShopsController::class, 'get']);
 Route::get('/shop/{shop_id}', [ShopsController::class, 'getDetail']);
+Route::get('/user',[UsersController::class, 'index']);

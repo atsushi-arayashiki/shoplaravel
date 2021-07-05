@@ -12,11 +12,9 @@ class LikesController extends Controller
     {
         $now = Carbon::now();
         $param = [
+         "likes_id" => $request->likes_id,
          "shop_id" => $request->shop_id,
-         "shop_name" => $request->shop_name,
-         "shop_address" => $request->shop_address,
-         "shop_genre" => $request->shop_genre,
-         "shop_like" => $request->shop_like,
+         "user_id" => $request->user_id,
          "created_at" => $now,
          "updated_at" => $now,
         ];
